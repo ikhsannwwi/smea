@@ -29,14 +29,14 @@
   <main>
     <div class="head-title">
       <div class="left">
-        <h1>Dashboard</h1>
+        <h1>Agenda</h1>
         <ul class="breadcrumb">
           <li>
-            <a href="#">Dashboard</a>
+            <a href="#">Agenda</a>
           </li>
           <li><i class='bx bx-chevron-right' ></i></li>
           <li>
-            <a class="active" href="#">Home</a>
+            <a class="active" href="#">Insert Agenda</a>
           </li>
         </ul>
       </div>
@@ -53,21 +53,43 @@
         <div class="order">
             <div class="form-style-6">
                 
-                <form action="/admin-insertekskul" method="POST" enctype="multipart/form-data">
+                <form action="/admin-insertagenda" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Nama Ekstrakulikuler</label>
-                            <input required type="text" class="form-control" name="ekskul_judul" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakulikuler">
+                            <label for="exampleInputEmail1">Nama Agenda</label>
+                            <input required type="text" class="form-control" name="agenda_nama" id="exampleInputEmail1" placeholder="Masukan Nama Agenda">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Deskripsi</label>
-                            <input required type="password" class="form-control" name="ekskul_deskripsi" id="exampleInputPassword1" placeholder="Masukan Deskripsi">
+                          <label for="exampleInputPassword1">Deskripsi</label>
+                          <textarea required name="agenda_deskripsi" class="form-control" placeholder="Masukan Deskripsi"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputFile">Foto Ekstrakulikuler</label>
-                            <input required type="file" class="form-control" name="ekskul_photo" >
+                            <label for="exampleInputPassword1">Tempat</label>
+                            <input required type="text" class="form-control" name="agenda_tempat" id="exampleInputPassword1" placeholder="Masukan Tempat">
                         </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Keterangan</label>
+                            <input required type="text" class="form-control" name="agenda_keterangan" id="exampleInputPassword1" placeholder="Masukan Keterangan">
+                        </div>
+                        
+                        <div class="form-group">
+                          <label for="exampleInputPassword1">Tanggal-Mulai</label>
+                          <input required type="date" class="form-control" name="agenda_mulai" id="exampleInputPassword1" placeholder="Masukan Tanggal Mulai">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Tanggal-Selesai</label>
+                            <input required type="date" class="form-control" name="agenda_selesai" id="exampleInputPassword1" placeholder="Masukan Tanggal Selesai">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Waktu</label>
+                            <input required type="text" class="form-control" name="agenda_waktu" id="exampleInputPassword1" placeholder="Masukan dengan Format Waktu (07.30 - Selesai)">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Author</label>
+                            <input required type="text" class="form-control" name="agenda_author" id="exampleInputPassword1" placeholder="Masukan Author">
+                        </div>
+                        
                         
                     </div>
                     <!-- /.card-body -->

@@ -29,14 +29,14 @@
   <main>
     <div class="head-title">
       <div class="left">
-        <h1>Dashboard</h1>
+        <h1>Agenda</h1>
         <ul class="breadcrumb">
           <li>
-            <a href="#">Dashboard</a>
+            <a href="#">Agenda</a>
           </li>
           <li><i class='bx bx-chevron-right' ></i></li>
           <li>
-            <a class="active" href="#">Home</a>
+            <a class="active" href="#">Edit Agenda</a>
           </li>
         </ul>
       </div>
@@ -53,22 +53,42 @@
         <div class="order">
             <div class="form-style-6">
                 
-                <form action="/admin-insertekskul/{{$data->id}}" method="POST" enctype="multipart/form-data">
+                <form action="/admin-updateagenda/{{$data->id}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Nama Ekstrakulikuler</label>
-                            <input required value="{{$data->ekskul_judul}}" type="text" class="form-control" name="ekskul_judul" id="exampleInputEmail1" placeholder="Masukan Nama Ekstrakulikuler">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Deskripsi</label>
-                            <input required value="{{$data->ekskul_deskripsi}}" type="text" class="form-control" name="ekskul_deskripsi" id="exampleInputPassword1" placeholder="Masukan Deskripsi">
-                        </div>
-                        <div class="form-group">
-                            <img src="" alt="{{$data->ekskul_photo}}">
-                            <input value="{{$data->ekskul_photo}}" type="file" class="form-control" name="ekskul_photo" >
-                        </div>
-                        
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Nama Agenda</label>
+                        <input required value="{{$data->agenda_nama}}" type="text" class="form-control" name="agenda_nama" id="exampleInputEmail1" placeholder="Masukan Nama Agenda">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Deskripsi</label>
+                        <textarea required name="agenda_deskripsi" class="form-control" placeholder="Masukan Deskripsi">{{$data->agenda_deskripsi}}</textarea>
+                      </div>
+                      <div class="form-group">
+                          <label for="exampleInputPassword1">Tempat</label>
+                          <input required value="{{$data->agenda_tempat}}" type="text" class="form-control" name="agenda_tempat" id="exampleInputPassword1" placeholder="Masukan Tempat">
+                      </div>
+                      <div class="form-group">
+                          <label for="exampleInputPassword1">Keterangan</label>
+                          <input required value="{{$data->agenda_keterangan}}" type="text" class="form-control" name="agenda_keterangan" id="exampleInputPassword1" placeholder="Masukan Keterangan">
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Tanggal-Mulai</label>
+                        <input required value="{{$data->agenda_mulai}}" type="date" class="form-control" name="agenda_mulai" id="exampleInputPassword1" placeholder="Masukan Tanggal Mulai">
+                      </div>
+                      <div class="form-group">
+                          <label for="exampleInputPassword1">Tanggal-Selesai</label>
+                          <input required value="{{$data->agenda_selesai}}" type="date" class="form-control" name="agenda_selesai" id="exampleInputPassword1" placeholder="Masukan Tanggal Selesai">
+                      </div>
+                      <div class="form-group">
+                          <label for="exampleInputPassword1">Waktu</label>
+                          <input required value="{{$data->agenda_waktu}}" type="text" class="form-control" name="agenda_waktu" id="exampleInputPassword1" placeholder="Masukan dengan Format Waktu (07.30 - Selesai)">
+                      </div>
+                      <div class="form-group">
+                          <label for="exampleInputPassword1">Author</label>
+                          <input required value="{{$data->agenda_author}}" type="text" class="form-control" name="agenda_author" id="exampleInputPassword1" placeholder="Masukan Author">
+                      </div> 
                     </div>
                     <!-- /.card-body -->
       

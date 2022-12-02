@@ -4,7 +4,7 @@
 <!-- CONTENT -->
 <section id="content">
   <!-- NAVBAR -->
-  <nav>
+  <nav class="primary-navigation">
     <i class='bx bx-menu' ></i>
     <a href="#" class="nav-link">Categories</a>
     <form action="#">
@@ -19,9 +19,20 @@
       <i class='bx bxs-bell' ></i>
       <span class="num">8</span>
     </a>
-    <a href="#" class="profile">
-      <img src="img/people.png">
-    </a>
+    <ul>
+      <li>
+        <a href="#" class="profile">
+          <img src="img/people.png">
+        </a>
+        <ul class="dropdown">
+          <li><a href="#">Web Development</a></li>
+          <li><a href="#">Web Design</a></li>
+          <li><a href="#">Illustration</a></li>
+          <li><a href="#">Iconography</a></li>
+        </ul>
+      </li>
+    </ul>
+    
   </nav>
   <!-- NAVBAR -->
 
@@ -29,10 +40,10 @@
   <main>
     <div class="head-title">
       <div class="left">
-        <h1>Dashboard</h1>
+        <h1>Agenda</h1>
         <ul class="breadcrumb">
           <li>
-            <a href="#">Dashboard</a>
+            <a href="#">Agenda</a>
           </li>
           <li><i class='bx bx-chevron-right' ></i></li>
           <li>
@@ -47,11 +58,9 @@
     </div>
 
     
-
-
     <div class="table-data ">
       <div class="order">
-        <a href="admin-tambahekskuls" class="tambahbtn btn__">
+        <a href="admin-tambahagenda" class="tambahbtn btn__">
           <i class='bx bx-folder-plus'></i>
           <span class="text">Tambah Data</span>
         </a>
@@ -64,8 +73,15 @@
           <thead>
             <tr>
               {{-- <th>No</th> --}}
-              <th>Username</th>
+              <th>Nama Agenda</th>
               <th>Deskripsi</th>
+              <th>Tempat</th>
+              <th>Keterangan</th>
+              <th>Tanggal</th>
+              <th>Mulai</th>
+              <th>Selesai</th>
+              <th>Waktu</th>
+              <th>Author</th>
               <th>Aksi</th>
               
               
@@ -75,17 +91,23 @@
             @php
                 $no = 1;
             @endphp
-            @foreach ($ekskul as $row)
+            @foreach ($agenda as $row)
             <tr>
               {{-- <td>{{$no++}}</td> --}}
               <td>
-                <img  src="{{asset('images/foto_ekskul/'.$row->ekskul_photo)}}">
-                <p>{{$row->ekskul_judul}}</p>
+                <p>{{$row->agenda_nama}}</p>
               </td>
-              <td>{{$row->ekskul_deskripsi}}</td>
+              <td>{{$row->agenda_deskripsi}}</td>
+              <td>{{$row->agenda_tempat}}</td>
+              <td>{{$row->agenda_keterangan}}</td>
+              <td>{{$row->agenda_tanggal}}</td>
+              <td>{{$row->agenda_mulai}}</td>
+              <td>{{$row->agenda_selesai}}</td>
+              <td>{{$row->agenda_waktu}}</td>
+              <td>{{$row->agenda_author}}</td>
               <td class="">
-                <a href="/admin-editekskuls/{{$row->id}}" id="edit" class="btn btn-warning"><i class='bx bx-edit bx-sm bx-tada-hover'></i></a>
-                <a href="#"  data-id="{{$row->id}}" data-nama="{{$row->ekskul_judul}}"  id="delete"><i class='bx bx-folder-minus bx-sm bx-tada-hover delete' ></i></a>
+                <a href="/admin-editagenda/{{$row->id}}" id="edit" class="btn btn-warning"><i class='bx bx-edit bx-sm bx-tada-hover'></i></a>
+                <a href="#" class="delete" data-id="{{$row->id}}" data-nama="{{$row->agenda_nama}}"  id="delete"><i class='bx bx-folder-minus bx-sm bx-tada-hover ' ></i></a>
               </td>
             </tr>
             @endforeach
@@ -93,35 +115,13 @@
           </tbody>
         </table>
         <div class="link">
-          {{ $ekskul->links('admin.layouts.paginator') }}
+          {{ $agenda->links('admin.layouts.paginator') }}
         </div>
       </div>
       
     </div>
 
 
-    {{-- <section id="formtambah">
-        <div class="container">
-          <form>
-            <div class="row">
-              <h4>Account</h4>
-              <div class="input-group input-group-icon">
-                <input type="text" placeholder="Full Name"/>
-                <div class="input-icon"><i class="fa fa-user"></i></div>
-              </div>
-              <div class="input-group input-group-icon">
-                <input type="email" placeholder="Email Adress"/>
-                <div class="input-icon"><i class="fa fa-envelope"></i></div>
-              </div>
-              <div class="input-group input-group-icon">
-                <input type="password" placeholder="Password"/>
-                <div class="input-icon"><i class="fa fa-key"></i></div>
-              </div>
-            </div>
-            
-          </form>
-        </div>
-    </section> --}}
 
 
   </main>
@@ -144,7 +144,7 @@
       })
           .then((willDelete) => {
               if (willDelete) {
-                  window.location = "/admin-deleteekskuls/" + ekskulid + ""
+                  window.location = "/admin-deleteagenda/" + ekskulid + ""
                   swal("Data" + nama + "berhasil di hapus", {
                       icon: "success",
                   });

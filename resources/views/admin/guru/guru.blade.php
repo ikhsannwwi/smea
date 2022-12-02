@@ -29,10 +29,10 @@
   <main>
     <div class="head-title">
       <div class="left">
-        <h1>User</h1>
+        <h1>Guru</h1>
         <ul class="breadcrumb">
           <li>
-            <a href="#">User</a>
+            <a href="#">Guru</a>
           </li>
           <li><i class='bx bx-chevron-right' ></i></li>
           <li>
@@ -51,7 +51,7 @@
 
     <div class="table-data ">
       <div class="order">
-        <a href="admin-tambahusers" class="tambahbtn btn__">
+        <a href="admin-tambahguru" class="tambahbtn btn__">
           <i class='bx bx-folder-plus'></i>
           <span class="text">Tambah Data</span>
         </a>
@@ -64,9 +64,11 @@
           <thead>
             <tr>
               {{-- <th>No</th> --}}
-              <th>Username</th>
-              <th>Email</th>
-              <th>Password</th>
+              <th>Nama Guru</th>
+              <th>NIP Guru</th>
+              <th>Tempat/Tanggal-Lahir</th>
+              <th>Pendidikan</th>
+              <th>MataPelajaran</th>
               <th>Aksi</th>
               
               
@@ -76,23 +78,30 @@
             @php
                 $no = 1;
             @endphp
-            @foreach ($user as $row)
+            @foreach ($guru as $row)
             <tr>
               {{-- <td>{{$no++}}</td> --}}
               <td>
-                <img  src="{{asset(''.$row->foto)}}">
-                <p>{{$row->name}}</p>
+                <img  src="{{asset(''.$row->guru_photo)}}">
+                <p>{{$row->guru_nama}}</p>
               </td>
-              <td>{{$row->eamil}}</td>
-              <td>{{$row->password}}</td>
-              <td>p</td>
+              <td>{{$row->guru_nip}}</td>
+              <td>{{$row->guru_tmp_lahir}}/{{$row->guru_tgl_lahir}}</td>
+              <td>{{$row->pendidikan_guru}}</td>
+              <td>{{$row->guru_mapel}}</td>
+            
+            
+              <td class="">
+                <a href="/admin-editguru/{{$row->id}}" id="edit" class="btn btn-warning"><i class='bx bx-edit bx-sm bx-tada-hover'></i></a>
+                <a href="#"  data-id="{{$row->id}}" class="delete" data-nama="{{$row->guru_nama}}"  id="delete"><i class='bx bx-folder-minus bx-sm bx-tada-hover' ></i></a>
+              </td>
             </tr>
             @endforeach
             
           </tbody>
         </table>
         <div class="link">
-          {{ $user->links('admin.layouts.paginator') }}
+          {{ $guru->links('admin.layouts.paginator') }}
         </div>
       </div>
       
@@ -127,6 +136,40 @@
   <!-- MAIN -->
 </section>
 <!-- CONTENT -->
+
+@push('script')
+
+<script>
+  $('.delete').click(function () {
+      var guruid = $(this).attr('data-id');
+      var nama = $(this).attr('data-nama');
+      swal({
+          title: "Yakin ?",
+          text: "Kamu akan menghapus data pegawai dengan nama " + nama + " ",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+      })
+          .then((willDelete) => {
+              if (willDelete) {
+                  window.location = "/admin-deleteguru/" + guruid + ""
+                  swal("Data" + nama + "berhasil di hapus", {
+                      icon: "success",
+                  });
+              } else {
+                  swal("Data " + nama + " tidak jadi dihapus");
+              }
+          });
+  });
+</script>
+
+<script>
+  if (Session:: has('success'))
+    toastr.success("{{ Session::get('success') }}")
+  endif
+</script>
+@endpush
+
 
 @endsection
 

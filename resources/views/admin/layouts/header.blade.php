@@ -31,34 +31,34 @@
 				
 			
 			<li class="{{request()->is('administrator') ? 'active' : ''}}">
-				<a href="administrator">
+				<a href="/administrator">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
-			<li class="{{request()->is('admin-users') ? 'active' : ''}}">
-				<a href="admin-users">
+			<li class="{{request()->is('admin-users','admin-tambahusers') ? 'active' : ''}}">
+				<a href="/admin-users">
 					<i class='bx bxs-navigation' ></i>
 					<span class="text">User</span>
 				</a>
 			</li>
-			<li class="{{request()->is('admin-ekstrakulikuler') ? 'active' : ''}}">
-				<a href="admin-ekstrakulikuler">
+			<li class="{{request()->is('admin-ekstrakulikuler','admin-tambahekskuls') ? 'active' : ''}}">
+				<a href="/admin-ekstrakulikuler">
 					<i class='bx bx-heading'></i>
 					<span class="text">EkstraKulikuler</span>
 				</a>
 			</li>
-			<li>
-				<a href="about">
+			<li class="{{request()->is('admin-agenda','admin-tambahagenda') ? 'active' : ''}}">
+				<a href="/admin-agenda">
 					{{-- <i class='bx bxs-doughnut-chart' ></i> --}}
 					<i class='bx bxs-user-voice'></i>
-					<span class="text">About Me</span>
+					<span class="text">Agenda</span>
 				</a>
 			</li>
-			<li>
-				<a href="mail">
+			<li class="{{request()->is('admin-guru','admin-tambahguru') ? 'active' : ''}}">
+				<a href="/admin-guru">
 					<i class='bx bxs-chat' ></i>
-					<span class="text">Mail</span>
+					<span class="text">Guru</span>
 				</a>
 			</li>
 			<li>

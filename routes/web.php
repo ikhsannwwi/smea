@@ -21,6 +21,8 @@ use App\Http\Controllers\pegawaiController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\admin\usersController;
 use App\Http\Controllers\admin\ekskulsController;
+use App\Http\Controllers\admin\minAgendaController;
+use App\Http\Controllers\admin\minGuruController;
 
 
 /*
@@ -92,3 +94,33 @@ Route::get('admin-editekskuls/{id}' ,[ekskulsController::class, 'editekskuls'])-
 Route::post('admin-updateekskuls/{id}' ,[ekskulsController::class, 'updateekskuls'])->name('updateekskuls');
 
 Route::get('admin-deleteekskuls/{id}' ,[ekskulsController::class, 'deleteekskuls'])->name('deleteekskuls');
+
+
+
+
+
+
+
+
+Route::get('admin-agenda' ,[minAgendaController::class, 'index'])->name('admin-agenda');
+Route::get('admin-tambahagenda' ,[minAgendaController::class, 'tambahagenda'])->name('tambahagenda');
+Route::post('admin-insertagenda' ,[minAgendaController::class, 'insertdataagenda'])->name('insertdataagenda');
+
+Route::get('admin-editagenda/{id}' ,[minAgendaController::class, 'editagenda'])->name('editagenda');
+Route::post('admin-updateagenda/{id}' ,[minAgendaController::class, 'updateagenda'])->name('updateagenda');
+
+Route::get('admin-deleteagenda/{id}' ,[minAgendaController::class, 'deleteagenda'])->name('deleteagenda');
+
+
+
+
+
+
+Route::get('admin-guru' ,[minGuruController::class, 'index'])->name('admin-guru');
+Route::get('admin-tambahguru' ,[minGuruController::class, 'tambahguru'])->name('tambahguru');
+Route::post('admin-insertguru' ,[minGuruController::class, 'insertdataguru'])->name('insertdataguru');
+
+Route::get('admin-editguru/{id}' ,[minGuruController::class, 'editguru'])->name('editguru');
+Route::post('admin-updateguru/{id}' ,[minGuruController::class, 'updateguru'])->name('updateguru');
+
+Route::get('admin-deleteguru/{id}' ,[minGuruController::class, 'deleteguru'])->name('deleteguru');

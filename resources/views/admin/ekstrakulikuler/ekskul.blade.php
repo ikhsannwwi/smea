@@ -29,10 +29,10 @@
   <main>
     <div class="head-title">
       <div class="left">
-        <h1>Dashboard</h1>
+        <h1>Ekstrakulikuler</h1>
         <ul class="breadcrumb">
           <li>
-            <a href="#">Dashboard</a>
+            <a href="#">Ekstrakulikuler</a>
           </li>
           <li><i class='bx bx-chevron-right' ></i></li>
           <li>
