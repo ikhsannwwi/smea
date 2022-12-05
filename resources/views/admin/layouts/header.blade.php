@@ -61,10 +61,10 @@
 					<span class="text">Guru</span>
 				</a>
 			</li>
-			<li>
-				<a href="graduate">
+			<li class="{{request()->is('admin-jurusan','admin-tambahjurusan') ? 'active' : ''}}">
+				<a href="admin-jurusan">
 					<i class='bx bxs-graduation' ></i>
-					<span class="text">Graduate</span>
+					<span class="text">Jurusan</span>
 				</a>
 			</li>
 			<li>

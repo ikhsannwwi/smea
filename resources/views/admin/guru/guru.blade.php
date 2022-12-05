@@ -82,7 +82,7 @@
             <tr>
               {{-- <td>{{$no++}}</td> --}}
               <td>
-                <img  src="{{asset(''.$row->guru_photo)}}">
+                <img  src="{{asset('images/foto-guru/'.$row->guru_photo)}}">
                 <p>{{$row->guru_nama}}</p>
               </td>
               <td>{{$row->guru_nip}}</td>

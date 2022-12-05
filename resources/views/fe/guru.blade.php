@@ -19,52 +19,38 @@
           
             <div class="row">
             
+                @foreach ($guru as $item)
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 
                     <div class="single-item">
+                            
                         <div class="lecturers1-item-wrapper">
                             <div class="lecturers-img-wrapper">
                                
 
                                
-                         <img src="{{asset('tampilan/gambar/jurusan.png')}}"  class="img-responsive" alt="team" style="width:300px; height: 200px">
+                            <img src="{{asset('images/foto-guru/'.$item->guru_photo)}}"  class="img-responsive" alt="team" style="width:300px; height: 200px">
               
 
                             </div>
                             <div class="lecturers-content-wrapper">
-                                <h3 class="item-title" style="font-size:17px"><a href="#">Nama Guru</a></h3>
-                                <span class="item-designation" style="font-size:14px">Layanan Komputasi Awan</span>  
+                                <h3 class="item-title" style="font-size:17px"><a href="#">{{$item->guru_nama}}</a></h3>
+                                <span class="item-designation" style="font-size:14px">{{$item->guru_mapel}}</span>  
                                 Pendidikan Terakhir : 
-                                <span class="item-designation"style="font-size:14px">S1 Pendidikan</span>
+                                <span class="item-designation"style="font-size:14px">{{$item->guru_pendidikan}}</span>
                             </div>
 
                             
                         </div>
-
-                        <div class="lecturers1-item-wrapper">
-                            <div class="lecturers-img-wrapper">
-                               
-
-                               
-                         <img src="{{asset('tampilan/gambar/jurusan.png')}}"  class="img-responsive" alt="team" style="width:300px; height: 200px">
-              
-
-                            </div>
-                            <div class="lecturers-content-wrapper">
-                                <h3 class="item-title" style="font-size:17px"><a href="#">Nama Guru</a></h3>
-                                <span class="item-designation" style="font-size:14px">Layanan Komputasi Awan</span>  
-                                Pendidikan Terakhir : 
-                                <span class="item-designation"style="font-size:14px">S1 Pendidikan</span>
-                            </div>
-
-                            
-                        </div>
+                        
+                        
                     </div>
-
                     
-                   
+                    
+                    
                 </div>
                 
+                @endforeach
                
                 
                 

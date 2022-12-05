@@ -124,3 +124,16 @@ Route::get('admin-editguru/{id}' ,[minGuruController::class, 'editguru'])->name(
 Route::post('admin-updateguru/{id}' ,[minGuruController::class, 'updateguru'])->name('updateguru');
 
 Route::get('admin-deleteguru/{id}' ,[minGuruController::class, 'deleteguru'])->name('deleteguru');
+
+
+
+
+
+Route::get('admin-jurusan' ,[minjurusanController::class, 'index'])->name('admin-jurusan');
+Route::get('admin-tambahjurusan' ,[minjurusanController::class, 'tambahjurusan'])->name('tambahjurusan');
+Route::post('admin-insertjurusan' ,[minjurusanController::class, 'insertdatajurusan'])->name('insertdatajurusan');
+
+Route::get('admin-editjurusan/{id}' ,[minjurusanController::class, 'editjurusan'])->name('editjurusan');
+Route::post('admin-updatejurusan/{id}' ,[minjurusanController::class, 'updatejurusan'])->name('updatejurusan');
+
+Route::get('admin-deletejurusan/{id}' ,[minjurusanController::class, 'deletejurusan'])->name('deletejurusan');
