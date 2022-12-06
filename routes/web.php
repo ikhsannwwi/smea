@@ -23,6 +23,8 @@ use App\Http\Controllers\admin\usersController;
 use App\Http\Controllers\admin\ekskulsController;
 use App\Http\Controllers\admin\minAgendaController;
 use App\Http\Controllers\admin\minGuruController;
+use App\Http\Controllers\admin\minjurusanController;
+use App\Http\Controllers\admin\minpegawaiController;
 
 
 /*
@@ -137,3 +139,14 @@ Route::get('admin-editjurusan/{id}' ,[minjurusanController::class, 'editjurusan'
 Route::post('admin-updatejurusan/{id}' ,[minjurusanController::class, 'updatejurusan'])->name('updatejurusan');
 
 Route::get('admin-deletejurusan/{id}' ,[minjurusanController::class, 'deletejurusan'])->name('deletejurusan');
+
+
+
+Route::get('admin-pegawai' ,[minpegawaiController::class, 'index'])->name('admin-pegawai');
+Route::get('admin-tambahpegawai' ,[minpegawaiController::class, 'tambahpegawai'])->name('tambahpegawai');
+Route::post('admin-insertpegawai' ,[minpegawaiController::class, 'insertdatapegawai'])->name('insertdatapegawai');
+
+Route::get('admin-editpegawai/{id}' ,[minpegawaiController::class, 'editpegawai'])->name('editpegawai');
+Route::post('admin-updatepegawai/{id}' ,[minpegawaiController::class, 'updatepegawai'])->name('updatepegawai');
+
+Route::get('admin-deletepegawai/{id}' ,[minpegawaiController::class, 'deletepegawai'])->name('deletepegawai');

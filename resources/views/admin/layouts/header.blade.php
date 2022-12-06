@@ -67,10 +67,10 @@
 					<span class="text">Jurusan</span>
 				</a>
 			</li>
-			<li>
-				<a href="article">
+			<li class="{{request()->is('admin-pegawai','admin-tambahpegawai') ? 'active' : ''}}">
+				<a href="admin-pegawai">
 					<i class='bx bxs-doughnut-chart' ></i>
-					<span class="text">Article</span>
+					<span class="text">Pegawai</span>
 				</a>
 			</li>
 			<li>

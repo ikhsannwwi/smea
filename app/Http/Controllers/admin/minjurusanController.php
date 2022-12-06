@@ -59,9 +59,11 @@ class minjurusanController extends Controller
     public function updatejurusan(Request $request , $id){
         $data = jurusan::find($id);
         
+        if(File_exists(public_path('images/foto-jurusan/'.$data->jurusan_photo))){ //either you can use file path instead of $data->image
+            unlink(public_path('images/foto-jurusan/'.$data->jurusan_photo));//here you can also use path like as ('uploads/media/welcome/'. $data->image)
+        }
         
-        
-            unlink(public_path('images/foto-jurusan/'.$data->jurusan_photo));
+            // unlink(public_path('images/foto-jurusan/'.$data->jurusan_photo));
         
         $data->update($request->all());
         
